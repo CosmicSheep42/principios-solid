@@ -1,21 +1,8 @@
-//No código abaixo ao tentar acessar o objeto Rua, o código transita entre os objetos rua e pessoa
+//O código 2 viola a Lei de Demeter pois o método a() da classe Pessoa acessa diretamente membros de outros objetos relacionados (endereco e rua), em vez de manter a interação restrita aos próprios 
+//membros da classe.
+//Enquanto no código 1 a classe Pessoa interage diretamente apenas com seus próprios membros (endereco), e o método getRua() mantém essa interação restrita.
 
-class Endereco {
-public:
-    std::string rua;
-};
-
-class Pessoa {
-public:
-    Endereco* endereco;
-};
-
-void a() {
-    Pessoa* pessoa = new Pessoa();
-    std::cout << pessoa->endereco->rua;  // Violação da Lei de Demeter
-}
-
-//
+//Código 1
 class Endereco {
 public:
     std::string rua;
@@ -30,7 +17,25 @@ public:
     }
 };
 
-void foo() {
+void a() {
     Pessoa* pessoa = new Pessoa();
     std::cout << pessoa->getRua();  // Segue a Lei de Demeter
+}
+
+
+
+//Código 2
+class Endereco {
+public:
+    std::string rua;
+};
+
+class Pessoa {
+public:
+    Endereco* endereco;
+};
+
+void a() {
+    Pessoa* pessoa = new Pessoa();
+    std::cout << pessoa->endereco->rua;  // Violação da Lei de Demeter
 }
