@@ -29,8 +29,7 @@ Quando uma classe tem múltiplas responsabilidades, ela se torna mais difícil d
 
 ###
 
-<p align="left">
-  .</p>
+<p align="left">Pela definição desse princípio, uma classe não pode conter métodos que não englobem a totalidade de suas subclasses. Uma classe "ave" não pode conter o atributo "voar", pois anularia as subclasses "pinguim", "avestruz", "galinha", pois não compartilham deste método. </p>
 
 ###
 
