@@ -1,0 +1,125 @@
+//Abaixo temos o código de uma biblioteca hipotética, onde podemos encontrar objetos das classes Livros e Artigos. Ambos fazem parte da interface "ItemDaBiblioteca", que possúi alguns atributos comuns como ID 
+//do objeto, Título, Autor e Ano de Publicação. Porém, alguns atributos só são utilizados pela classe Livro, como Editora, Data do Último Empréstimo e Nome de quem realizou o empréstimo, pois os artigos não podem
+//ser emprestados. Os artigos também necessitam de atributos próprios que não estão cobertos pela interface, como as Revistas onde ele foi publicado e qual Universidade de Origem.
+
+#include <iostream>
+#include <string>
+#include <ctime>
+
+// Interface para itens da biblioteca
+class ItemDaBiblioteca {
+public:
+    virtual void exibirDetalhes() const = 0;
+
+    // Getters e setters para as propriedades comuns
+    virtual int getID() const = 0;
+    virtual void setID(int id) = 0;
+
+    virtual std::string getTitulo() const = 0;
+    virtual void setTitulo(const std::string& titulo) = 0;
+
+    virtual std::string getAutor() const = 0;
+    virtual void setAutor(const std::string& autor) = 0;
+
+    virtual int getAno() const = 0;
+    virtual void setAno(int ano) = 0;
+
+    virtual std::string getEditora() const = 0;
+    virtual void setEditora(const std::string& editora) = 0;
+
+    virtual std::time_t getDataUltimoEmprestimo() const = 0;
+    virtual void setDataUltimoEmprestimo(std::time_t data) = 0;
+
+    virtual std::string getNomeEmprestimo() const = 0;
+    virtual void setNomeEmprestimo(const std::string& nome) = 0;
+};
+
+// Classe Livro implementando a interface ItemDaBiblioteca
+class Livro : public ItemDaBiblioteca {
+private:
+    int ID;
+    std::string titulo;
+    std::string autor;
+    int ano;
+    std::string editora;
+    std::time_t dataUltimoEmprestimo;
+    std::string nomeEmprestimo;
+
+public:
+    // Implementação dos métodos da interface
+    void exibirDetalhes() const override {
+        std::cout << "Livro: " << titulo << " (ID: " << ID << ")\n";
+        std::cout << "Autor: " << autor << "\n";
+        std::cout << "Ano: " << ano << "\n";
+        std::cout << "Editora: " << editora << "\n";
+        std::cout << "Último empréstimo: " << std::asctime(std::localtime(&dataUltimoEmprestimo));
+        std::cout << "Nome do emprestador: " << nomeEmprestimo << "\n";
+    }
+
+    int getID() const override { return ID; }
+    void setID(int id) override { ID = id; }
+
+    std::string getTitulo() const override { return titulo; }
+    void setTitulo(const std::string& t) override { titulo = t; }
+
+    std::string getAutor() const override { return autor; }
+    void setAutor(const std::string& a) override { autor = a; }
+
+    int getAno() const override { return ano; }
+    void setAno(int a) override { ano = a; }
+
+    std::string getEditora() const override { return editora; }
+    void setEditora(const std::string& e) override { editora = e; }
+
+    std::time_t getDataUltimoEmprestimo() const override { return dataUltimoEmprestimo; }
+    void setDataUltimoEmprestimo(std::time_t data) override { dataUltimoEmprestimo = data; }
+
+    std::string getNomeEmprestimo() const override { return nomeEmprestimo; }
+    void setNomeEmprestimo(const std::string& nome) override { nomeEmprestimo = nome; }
+};
+
+// Classe Artigo implementando a interface ItemDaBiblioteca
+class Artigo : public ItemDaBiblioteca {
+private:
+    int ID;
+    std::string titulo;
+    std::string autor;
+    int ano;
+    int revistasPublicadas;
+    std::string universidadeDeOrigem;
+
+public:
+    // Implementação dos métodos da interface
+    void exibirDetalhes() const override {
+        std::cout << "Artigo: " << titulo << " (ID: " << ID << ")\n";
+        std::cout << "Autor: " << autor << "\n";
+        std::cout << "Ano: " << ano << "\n";
+        std::cout << "Revistas Publicadas: " << revistasPublicadas << "\n";
+        std::cout << "Universidade de Origem: " << universidadeDeOrigem << "\n";
+    }
+
+    int getID() const override { return ID; }
+    void setID(int id) override { ID = id; }
+
+    std::string getTitulo() const override { return titulo; }
+    void setTitulo(const std::string& t) override { titulo = t; }
+
+    std::string getAutor() const override { return autor; }
+    void setAutor(const std::string& a) override { autor = a; }
+
+    int getAno() const override { return ano; }
+    void setAno(int a) override { ano = a; }
+
+    int getRevistasPublicadas() const { return revistasPublicadas; }
+    void setRevistasPublicadas(int revistas) { revistasPublicadas = revistas; }
+
+    std::string getUniversidadeDeOrigem() const { return universidadeDeOrigem; }
+    void setUniversidadeDeOrigem(const std::string& universidade) { universidadeDeOrigem = universidade; }
+};
+
+//Criando interfaces próprias para Livros e Artigos podemos resolver ambos os problemas dos atributos não utilizados por uma das classes, quanto o dos atributos que não estavam cobertos pela interface.
+//Da mesma forma, criando uma 
+    artigo.exibirDetalhes();
+
+    return 0;
+}
