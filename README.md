@@ -46,6 +46,7 @@ Quando uma classe tem múltiplas responsabilidades, ela se torna mais difícil d
 
 ###
 
-<p align="left">Segundo a lei de Demeter deve-se evitar interações excessivas com objetos indiretos, o código deve dialogar sempre diretamente com os objetos que deseja interagir. Essa abordagem ajuda a reduzir a complexidade do código, facilitando a manutenção e promovendo a reutilização de componentes.</p>
+<p align="left">Segundo a lei de Demeter deve-se evitar interações excessivas com objetos indiretos, o código deve dialogar sempre diretamente com os objetos que deseja interagir. Essa abordagem ajuda a reduzir a complexidade do código, facilitando a manutenção e promovendo a reutilização de componentes.
+Em uma anologia simples, poderiamos considerar o ato de acessar um arquivo dentro de múltiplas pastas aninhadas uma violação, representando um objeto sendo acessado através de outros. Porém, ao criar um atalho para o arquivo na área de trabalho, resolvemos a violação, permitindo um acesso simples e eficiente ao objeto sem depender dos demais.</p>
 
 ###
