@@ -65,8 +65,7 @@ public:
 };
 
 //Podemos corrigir isso criando interfaces separadas para cada classe, garantindo que elas possuam apenas os atributos que utilizem. Tornando os atributos de empréstimo em uma interface a parte, possibilitamos
-//que, caso a Biblioteca 
-
+//que, caso a Biblioteca receba novas mídias emprestáveis, como DVDs, fique mais fácil de fazer a implementação dos atributos de empréstimo
 
 
 #include <string>
