@@ -1,0 +1,65 @@
+#include <stdio.h>
+//No código abaixo temos uma função hipotética que representa o calculo de dano de uma espada em um jogo a partir de 3 possíveis atributos, o material, o nível e se o item está encantado ou não.
+//Cada variável possúi sua própria função de calculo, assim, caso algum aspecto em específico desses atributos precise ser rebalanceado, basta modificar uma única classe do código.
+//Da mesma forma, caso se deseje remover ou adicionar uma nova variável, como cada parte do dano é calculada de maneira isolada, o código se torna muito mais prático de ser alterado.
+
+
+#include <iostream>
+#include <string>
+
+
+class Espada {
+private:
+    std::string material;
+    int nivel;
+    bool encantada;
+
+public:
+    Espada(const std::string& mat, int nvl, bool enc) : material(mat), nivel(nvl), encantada(enc) {}
+
+    std::string getMaterial() const { return material; }
+    int getNivel() const { return nivel; }
+    bool estaEncantada() const { return encantada; }
+};
+
+// Função para calcular o dano baseado no material da espada.
+int calcularDanoMaterial(const Espada& espada) {
+    int danoMaterial = 0;
+    if (espada.getMaterial() == "ferro") {
+        danoMaterial = 5;
+    } else if (espada.getMaterial() == "aço") {
+        danoMaterial = 10;
+    } else if (espada.getMaterial() == "adamantium") {
+        danoMaterial = 15;
+    }
+    return danoMaterial;
+}
+
+// Função para calcular o dano baseado no nível da espada.
+int calcularDanoNivel(const Espada& espada) {
+    return espada.getNivel() * 2;
+}
+
+// Função para calcular o dano baseado no encantamento da espada.
+int calcularDanoEncantada(const Espada& espada) {
+    return espada.estaEncantada() ? 20 : 0;
+}
+
+// Função para calcular a soma dos danos das variáveis.
+int calcularDanoTotal(const Espada& espada) {
+    int danoTotal = 10; // Dano base da espada
+    danoTotal += calcularDanoMaterial(espada);
+    danoTotal += calcularDanoNivel(espada);
+    danoTotal += calcularDanoEncantada(espada);
+    return danoTotal;
+}
+
+int main() {
+    Espada EspadaTeste("aço", 5, true); // Exemplo de uma espada de aço, nível 5 e encantada
+    int dano = calcularDanoTotal(EspadaTeste);
+
+    std::cout << "Dano da espada: " << dano << " pontos\n";
+
+    return 0;
+}
+
