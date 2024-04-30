@@ -1,0 +1,78 @@
+//No primeiro código temos a classe Ave que afirma dados sobre suas subclasse Pinguim e Beijaflor, porém, a subclasse Pinguim não é capaz de voar, inutilizando a variável VelocidadeVoo.
+//Como há na classe métodos não utilizados por todas as suas subclasse, o princípio de Liskov está sendo quebrado.
+
+//Para corrigir, no código 2, a capacidade de voar foi incluída somente nas subclasses em que é conveniente.
+
+
+//Código 1
+#include <string>
+
+class Ave
+{
+public:
+    std::string FormatoBico;
+    std::string CorAsa;
+    int VelocidadeVoo;
+};
+
+class Pinguim : public Ave
+{
+public:
+    Pinguim()
+    {
+        FormatoBico = "Longo";
+        CorAsa = "Azul";
+	VelocidadeVoo = "";
+    }
+};
+
+class BeijaFlor : public Ave
+{
+public:
+    BeijaFlor()
+    {
+        FormatoBico = "Fino";
+        CorAsa = "Ciano";
+	VelocidadeVoo = "98km/h";
+    }
+
+};
+
+
+
+
+
+
+//Código 2
+#include <string>
+class Ave
+{
+public:
+    std::string FormatoBico;
+    std::string CorAsa;
+};
+
+class Pinguim : public Ave
+{
+public:
+    Pinguim()
+    {
+        FormatoBico = "Longo";
+        CorAsa = "Azul";
+    }
+};
+
+class BeijaFlor : public Ave
+{
+public:
+    BeijaFlor()
+    {
+        FormatoBico = "Fino";
+        CorAsa = "Ciano";
+    }
+
+    void Voar()
+    {
+        std::cout << "Esta voando.\n";
+    }
+};
