@@ -3,7 +3,6 @@
 //Cada variável possúi sua própria função de calculo, assim, caso algum aspecto em específico desses atributos precise ser rebalanceado, basta modificar uma única classe do código.
 //Da mesma forma, caso se deseje remover ou adicionar uma nova variável, como cada parte do dano é calculada de maneira isolada, o código se torna muito mais prático de ser alterado.
 
-
 #include <iostream>
 #include <string>
 
@@ -57,6 +56,60 @@ int calcularDanoTotal(const Espada& espada) {
 int main() {
     Espada EspadaTeste("aço", 5, true); // Exemplo de uma espada de aço, nível 5 e encantada
     int dano = calcularDanoTotal(EspadaTeste);
+
+    std::cout << "Dano da espada: " << dano << " pontos\n";
+
+    return 0;
+}
+
+
+
+//Em contrapartida, no exemplo abaixo todos os cálculos são efetuados dentro da mesma função, atrapalhando o entendimento do código.
+//Caso novas variáveis sejam adicionadas ao calculo, o código poderá ficar mais propenso a erros devido a grande quantidade de processos ocorrendo na mesma classe.
+
+#include <iostream>
+
+class Espada {
+private:
+    std::string material;
+    int nivel;
+    bool encantada;
+
+public:
+    Espada(const std::string& mat, int nvl, bool enc) : material(mat), nivel(nvl), encantada(enc) {}
+
+    std::string getMaterial() const { return material; }
+    int getNivel() const { return nivel; }
+    bool estaEncantada() const { return encantada; }
+};
+
+class CalculadoraDano {
+public:
+    static int calcularDano(const Espada& espada) {
+        int baseDano = 10; // Dano base da espada
+
+        // Modificadores de dano com base nos atributos da espada
+        if (espada.getMaterial() == "ferro") {
+            baseDano += 5;
+        } else if (espada.getMaterial() == "aço") {
+            baseDano += 10;
+        } else if (espada.getMaterial() == "adamantium") {
+            baseDano += 15;
+        }
+
+        baseDano += espada.getNivel() * 2; // Incrementa o dano com base no nível da espada
+
+        if (espada.estaEncantada()) {
+            baseDano += 20; // Incrementa o dano se a espada estiver encantada
+        }
+
+        return baseDano;
+    }
+};
+
+int main() {
+    Espada EspadaTeste("aço", 5, true); // Exemplo de uma espada de aço, nível 5 e encantada
+    int dano = CalculadoraDano::calcularDano(EspadaTeste);
 
     std::cout << "Dano da espada: " << dano << " pontos\n";
 
