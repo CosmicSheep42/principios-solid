@@ -1,6 +1,6 @@
 //O código 2 viola a Lei de Demeter pois o método a() da classe Pessoa acessa diretamente membros de outros objetos relacionados (endereco e rua), em vez de manter a interação restrita aos próprios 
 //membros da classe.
-//Enquanto no código 1 a classe Pessoa interage diretamente apenas com seus próprios membros (endereco), e o método getRua() mantém essa interação restrita.
+//Enquanto no código 1 a classe Pessoa interage diretamente apenas com seus próprios membros (endereco), e o método getRua() mantém essa interação restrita, corrigindo a violação.
 
 //Código 1
 class Endereco {
