@@ -46,6 +46,6 @@ Quando uma classe tem múltiplas responsabilidades, ela se torna mais difícil d
 
 ###
 
-<p align="left">.</p>
+<p align="left">Segundo a lei de Demeter deve-se evitar interações excessivas com objetos indiretos, o código deve dialogar sempre diretamente com os objetos que deseja interagir. Essa abordagem ajuda a reduzir a complexidade do código, facilitando a manutenção e promovendo a reutilização de componentes.</p>
 
 ###
