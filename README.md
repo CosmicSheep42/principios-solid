@@ -38,7 +38,7 @@ Quando uma classe tem múltiplas responsabilidades, ela se torna mais difícil d
 
 ###
 
-<p align="left">1 - Princípio da Responsabilidade Única (Single Responsibility Principle)<br>2 - Princípio da substituição de Liskov (Liskov Substitution Principle)<br>3 -  Princípio da Segregação da Interface (Interface Segregation Principle)<br>4 - Princípio de Demeter (Principle of Least Knowledge)<br><br>Cada princípio possui dois exemplos de sua aplicação, sendo um correto e um inadequado.</p>
+<p align="left">De acordo com esse princípio, nenhuma classe deve depender de métodos que não utilize. Usando por exemplo um software de edição de imagens, como o photoshop, diferentes usuários, reprensentando nossas classes, tem necessidades de interfaces diferentes, um fotógrafo profissional não utiliza as mesmas ferramentas, representando os métodos, que um desenhista. Dessa forma, criando diferentes interfaces customizadas e adaptadas para cada classe, facilitamos o entendimento e modificação do código para alterações em cada classe.</p>
 
 ###
 
@@ -46,6 +46,6 @@ Quando uma classe tem múltiplas responsabilidades, ela se torna mais difícil d
 
 ###
 
-<p align="left">1 - Princípio da Responsabilidade Única (Single Responsibility Principle)<br>2 - Princípio da substituição de Liskov (Liskov Substitution Principle)<br>3 -  Princípio da Segregação da Interface (Interface Segregation Principle)<br>4 - Princípio de Demeter (Principle of Least Knowledge)<br><br>Cada princípio possui dois exemplos de sua aplicação, sendo um correto e um inadequado.</p>
+<p align="left">.</p>
 
 ###
